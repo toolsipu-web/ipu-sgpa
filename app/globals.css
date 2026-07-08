@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0d0a1a;
+  --bg-soft: #171227;
+  --text: #f5f3fa;
+  --text-muted: #b8b0cc;
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+.light {
+  --bg: #f7f5fb;
+  --bg-soft: #ffffff;
+  --text: #1c1730;
+  --text-muted: #5a5470;
+  --border: rgba(20, 10, 50, 0.08);
+}
+
+/* Eye-comfort mode: warmer, lower-contrast dark palette */
+.eye-comfort {
+  --bg: #14110c;
+  --bg-soft: #201a12;
+  --text: #f1e9d8;
+  --text-muted: #b8ac8f;
+  --border: rgba(255, 230, 180, 0.08);
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.glass-card {
+  background: color-mix(in srgb, var(--bg-soft) 92%, transparent);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #7c3aed;
+  border-radius: 8px;
+}
+
+/* Focus visibility for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid #a855f7;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
